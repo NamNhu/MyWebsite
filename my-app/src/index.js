@@ -1,36 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React, { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 
+import TicTacToe from "./TicTacToe";
 
-
-class Board extends React.Component {
-    renderSquare(i) {
-        return <Square value={i}/>
-    }
-}
-
-
-class Square extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: null,
-        };
-    } 
-
-
-    render() {
-        return (
-            <button 
-            className='square' 
-            onClick={ () => this.setState({ value: 'X'})}
-            >
-                {this.state.value}
-            </button>
-        );
-    } 
-}
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Square/>)
+const root = createRoot(document.getElementById("root"));
+root.render(
+  <StrictMode>
+    <TicTacToe />
+  </StrictMode>
+);
